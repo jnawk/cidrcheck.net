@@ -1,0 +1,56 @@
+{
+  "name": "cidrcheck.net",
+  "version": "1.0.0",
+  "description": "CIDR Checker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack serve --mode development",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnawk/cidrcheck.net.git"
+  },
+  "keywords": [
+    "CIDR",
+    "Range",
+    "IP Address",
+    "IPv4",
+    "IPv6",
+    "Subnet",
+    "Address"
+  ],
+  "author": "Philip Dowie",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jnawk/cidrcheck.net/issues"
+  },
+  "homepage": "https://github.com/jnawk/cidrcheck.net#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "@babel/preset-react": "^7.12.13",
+    "auto-bind": "^4.0.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.2",
+    "eslint": "^7.20.0",
+    "eslint-plugin-react": "^7.22.0",
+    "html-webpack-plugin": "^5.1.0",
+    "ip-address": "^7.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+   "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  }
+}
