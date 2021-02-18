@@ -31,7 +31,7 @@ class CIDRCheck extends React.Component {
             binaryAddressDetails = (
               <Row>
                 <Col xs={4} md={3} lg={2}>Address (binary)</Col>
-                <Col xs={1}>
+                <Col xs={8}>
                   <font color="red">
                     {ipAddressDetails.mask()}
                   </font>
@@ -43,23 +43,36 @@ class CIDRCheck extends React.Component {
             )
           } catch {
             ipAddressDetails = new ipaddress.Address6(ipAddress)
+            binaryAddressDetails = (
+              <Row>
+                <Col className={["d-none","d-xl-block"]} xl={2}>Address (binary)</Col>
+                <Col className={["d-none","d-xl-block"]} xl={8}>
+                  <font color="red">
+                    {ipAddressDetails.mask()}
+                  </font>
+                  <font color="blue">
+                    {ipAddressDetails.getBitsBase2(ipAddressDetails.subnetMask)}
+                  </font>
+                </Col>
+              </Row>
+            )
           }
 
           details = (
             <>
               <Row>
                 <Col xs={4} md={3} lg={2}>Address</Col>
-                <Col xs={1}>
+                <Col xs={8}>
                   {ipAddressDetails.addressMinusSuffix}{ipAddressDetails.subnet}
                 </Col>
               </Row>
               <Row>
                 <Col xs={4} md={3} lg={2}>Start of Subnet</Col>
-                <Col xs={1}>{ipAddressDetails.startAddress().address}</Col>
+                <Col xs={8}>{ipAddressDetails.startAddress().address}</Col>
               </Row>
               <Row>
                 <Col xs={4} md={3} lg={2}>End of Subnet</Col>
-                <Col xs={1}>{ipAddressDetails.endAddress().address}</Col>
+                <Col xs={8}>{ipAddressDetails.endAddress().address}</Col>
               </Row>
               {binaryAddressDetails}
             </>
@@ -68,12 +81,12 @@ class CIDRCheck extends React.Component {
           // not a valid IPv4 or IPv6 address
         }
         return (
-          <Container>
+          <Container fluid>
             <Row>
               <Col xs={4} md={3} lg={2}>
                 <label htmlFor="ipAddress">IP Address</label>
               </Col>
-              <Col xs={1}>
+              <Col xs={8}>
                 <input name="ipAddress"
                   value={ipAddress}
                   onChange={event => this.setState({ipAddress: event.target.value})}
